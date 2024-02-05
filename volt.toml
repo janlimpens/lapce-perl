@@ -1,20 +1,17 @@
-name = "lapce-php-intelephense"
+name = "lapce-perl"
 version = "0.1.0"
-author = "dajoha"
-display-name = "Php (Intelephense)"
-description = "Php for Lapce using Intelephense"
-wasm = "lapce-php-intelephense.wasm"
-icon = "php-logo.png"
-repository = "https://github.com/dajoha/lapce-php-intelephense"
+author = "jan"
+display-name = "Perl"
+description = "Perl for Lapce"
+wasm = "lapce-perl.wasm"
+icon = "perl-logo.png"
+repository = "https://github.com/janlimpens/lapce-perl"
 
 [activation]
-language = ["php"]
+language = ["perl"]
 workspace-contains = []
 
-[config."lsp.serverPath"]
-default = "/usr/bin/intelephense"
-description = "Path to Intelephense executable"
+[config."lsp.perl_languageserver.serverPath"]
+default = "~/perl5/bin/pls"
+description = "Path to Perl::LanguageServer executable"
 
-[config."licenceKey"]
-default = ""
-description = "Optional Intelephense licence key"

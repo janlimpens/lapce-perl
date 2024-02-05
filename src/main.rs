@@ -24,8 +24,8 @@ include!(concat!(env!("OUT_DIR"), "/volt_config.rs"));
 
 fn initialize(params: InitializeParams) -> Result<()> {
     let document_selector: DocumentSelector = vec![DocumentFilter {
-        language: Some(String::from("php")),
-        pattern: Some(String::from("**/*.php")),
+        language: Some(String::from("perl")),
+        pattern: Some(String::from("**/*.(pl|pm|t|cgi|psgi)")),
         scheme: None,
     }];
 
@@ -36,7 +36,7 @@ fn initialize(params: InitializeParams) -> Result<()> {
         .and_then(|lsp| lsp.get("serverPath"))
         .and_then(|server_path| server_path.as_str())
         .and_then(|server_path| (!server_path.is_empty()).then_some(server_path))
-        .unwrap_or(volt_config!("lsp.serverPath"));
+        .unwrap_or(volt_config!("lsp.perl_languageserver.serverPath"));
 
     PLUGIN_RPC.start_lsp(
         Url::parse(&format!("urn:{}", server_path))?,
